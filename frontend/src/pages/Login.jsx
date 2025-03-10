@@ -23,10 +23,13 @@ const Login = () => {
 
     try {
       // Send login request to backend
-      const response = await axios.post("http://localhost:8000/user/login", {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "https://exploreease-vzoh.onrender.com/user/login",
+        {
+          email,
+          password,
+        }
+      );
       localStorage.setItem("user", JSON.stringify(response.data.user));
       if (user) {
         navigate("/home");

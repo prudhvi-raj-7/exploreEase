@@ -63,7 +63,10 @@ const Preference = () => {
     setLoading(true);
 
     try {
-      await axios.post("http://localhost:8000/trip/addTrip", formData);
+      await axios.post(
+        "https://exploreease-vzoh.onrender.com/trip/addTrip",
+        formData
+      );
       alert("Preferences saved successfully!");
       setFormData({
         groupSize: "",
@@ -115,10 +118,13 @@ const Preference = () => {
     console.log(tripId);
     try {
       setisLoading(true);
-      await axios.post("http://localhost:8000/trip/removeTrip", {
-        tripId,
-        userId,
-      });
+      await axios.post(
+        "https://exploreease-vzoh.onrender.com/trip/removeTrip",
+        {
+          tripId,
+          userId,
+        }
+      );
       setisLoading(false);
       setMlResponse("");
       getUser();
@@ -130,7 +136,7 @@ const Preference = () => {
   const getUser = async () => {
     try {
       const { data } = await axios.post(
-        "http://localhost:8000/user/singleUser",
+        "https://exploreease-vzoh.onrender.com/user/singleUser",
         {
           id: userId,
         }

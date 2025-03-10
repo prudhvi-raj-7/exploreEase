@@ -10,7 +10,7 @@ const AllDestinations = () => {
   const getAllTrips = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8000/trip/getAllTrips"
+        "https://exploreease-vzoh.onrender.com/trip/getAllTrips"
       );
       setTrips(data?.allTrips);
     } catch (error) {
@@ -21,10 +21,13 @@ const AllDestinations = () => {
   // Delete a trip by its ID
   const deleteTrip = async (tripId, userId) => {
     try {
-      await axios.post(`http://localhost:8000/trips/removeTrip`, {
-        id: tripId,
-        userId,
-      });
+      await axios.post(
+        `https://exploreease-vzoh.onrender.com/trips/removeTrip`,
+        {
+          id: tripId,
+          userId,
+        }
+      );
       setTrips((prevTrips) => prevTrips.filter((trip) => trip._id !== tripId));
       alert("Trip deleted successfully!");
     } catch (error) {

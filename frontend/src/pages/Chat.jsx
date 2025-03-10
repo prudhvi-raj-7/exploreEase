@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 // Connect to the backend
-const socket = io("http://localhost:8000");
+const socket = io("https://exploreease-vzoh.onrender.com");
 
 const Chat = () => {
   const [message, setMessage] = useState("");

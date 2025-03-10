@@ -24,7 +24,7 @@ const Register = () => {
     try {
       // First, register the user
       const registerResponse = await axios.post(
-        "http://localhost:8000/user/register",
+        "https://exploreease-vzoh.onrender.com/user/register",
         {
           name,
           email,
@@ -34,9 +34,12 @@ const Register = () => {
       );
 
       // Trigger OTP sending
-      const otpResponse = await axios.post("http://localhost:8000/send-otp", {
-        email,
-      });
+      const otpResponse = await axios.post(
+        "https://exploreease-vzoh.onrender.com/send-otp",
+        {
+          email,
+        }
+      );
 
       if (otpResponse.data.success) {
         // Save the OTP in localStorage
