@@ -31,9 +31,8 @@ const Login = () => {
         }
       );
       localStorage.setItem("user", JSON.stringify(response.data.user));
-      if (user) {
-        navigate("/home");
-      }
+
+      navigate("/home");
     } catch (error) {
       // Handle login error
       setErrorMessage(error.response?.data?.message || "Login failed");
