@@ -96,7 +96,7 @@ const Preference = () => {
       };
 
       const response = await axios.post(
-        "https://exploreeasebackend.onrender.com/docs/recommend_travel",
+        "https://exploreeasebackend.onrender.com/recommend_travel",
         requestData
       );
 
