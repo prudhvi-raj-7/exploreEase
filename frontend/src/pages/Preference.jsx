@@ -165,8 +165,8 @@ const Preference = () => {
 
         {/* Add Trip Modal */}
         {isModalOpen && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-            <div className="bg-white w-11/12 max-w-lg p-6 rounded-lg shadow-lg relative">
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+            <div className="bg-white w-11/12 max-w-lg p-6 rounded-lg shadow-lg relative z-40">
               <h2 className="text-2xl font-bold mb-4">User Preferences</h2>
               <button
                 onClick={() => setModalOpen(false)}
@@ -260,7 +260,7 @@ const Preference = () => {
           {trips.map((trip) => (
             <div
               key={trip._id}
-              className="p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform "
+              className="p-4 bg-white rounded-lg z-30 shadow-md hover:shadow-xl transition-shadow duration-300 transform "
             >
               <div className="flex items-center mb-4">
                 <FaMapMarkerAlt className="text-blue-500 text-lg mr-2" />
