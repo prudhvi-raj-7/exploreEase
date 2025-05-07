@@ -104,7 +104,6 @@ const Translator = () => {
                 <option value="es">Spanish</option>
                 <option value="de">German</option>
                 <option value="hi">Hindi</option>
-                <option value="ta">Tamil</option>
               </select>
             </div>
           </div>
