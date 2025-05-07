@@ -6,42 +6,29 @@ const Footer = () => {
       <div className="container mx-auto text-center">
         {/* Footer Content */}
         <p className="text-sm">
-          &copy; {new Date().getFullYear()} Recovery Companion. All rights
-          reserved.
+          &copy; {new Date().getFullYear()} Explore Ease. All rights reserved.
         </p>
         <nav className="mt-2">
           <ul className="flex justify-center space-x-4">
             <li>
-              <a
-                href="/about"
-                className="hover:text-gray-400 transition-colors"
-              >
+              <span className="hover:text-gray-400 transition-colors">
                 About Us
-              </a>
+              </span>
             </li>
             <li>
-              <a
-                href="/contact"
-                className="hover:text-gray-400 transition-colors"
-              >
+              <span className="hover:text-gray-400 transition-colors">
                 Contact
-              </a>
+              </span>
             </li>
             <li>
-              <a
-                href="/privacy"
-                className="hover:text-gray-400 transition-colors"
-              >
+              <span className="hover:text-gray-400 transition-colors">
                 Privacy Policy
-              </a>
+              </span>
             </li>
             <li>
-              <a
-                href="/terms"
-                className="hover:text-gray-400 transition-colors"
-              >
+              <span className="hover:text-gray-400 transition-colors">
                 Terms of Service
-              </a>
+              </span>
             </li>
           </ul>
         </nav>

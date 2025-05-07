@@ -1,15 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { FaTrashAlt, FaUserAlt } from "react-icons/fa";
+import {
+  FaTrashAlt,
+  FaMapMarkerAlt,
+  FaRegCalendarAlt,
+  FaUsers,
+  FaMoneyBillWave,
+  FaHome,
+  FaUserAlt,
+} from "react-icons/fa";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { AiOutlineClose } from "react-icons/ai";
 
 const AllUsers = () => {
   const [users, setUsers] = useState([]);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Fetch all users from the server
   const getAllUsers = async () => {
     try {
-      const { data } = await axios.get("http://localhost:8000/user/allUsers");
+      const { data } = await axios.get(
+        "https://exploreease-vzoh.onrender.com/user/allUsers"
+      );
       setUsers(data);
     } catch (error) {
       console.log(error);
@@ -39,26 +52,72 @@ const AllUsers = () => {
       <header className="bg-blue-600 text-white shadow-md sticky top-0 z-50">
         <div className="container mx-auto flex justify-between items-center p-4">
           <h1 className="text-2xl font-bold">Admin Dashboard</h1>
-          <nav>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:block">
             <ul className="flex space-x-6">
               <Link
                 to="/allTrips"
-                className="hover:text-blue-300 transition-colors"
+                className="hover:text-blue-300 transition-colors flex items-center"
               >
-                All Trips
+                <FaMapMarkerAlt className="mr-2" /> All Trips
               </Link>
+
               <Link
                 to="/allUsers"
-                className="hover:text-blue-300 transition-colors"
+                className="hover:text-blue-300 transition-colors flex items-center"
               >
-                All Users
+                <FaUsers className="mr-2" /> All Users
               </Link>
-              <Link to="/" className="hover:text-blue-300 transition-colors">
-                LogOut
+
+              <Link
+                to="/"
+                className="hover:text-blue-300 transition-colors flex items-center"
+              >
+                <FaHome className="mr-2" /> LogOut
               </Link>
             </ul>
           </nav>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden text-2xl"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <AiOutlineClose /> : <GiHamburgerMenu />}
+          </button>
         </div>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="md:hidden bg-blue-700 pb-4 px-4">
+            <ul className="flex flex-col space-y-3">
+              <Link
+                to="/allTrips"
+                className="hover:text-blue-300 transition-colors flex items-center py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <FaMapMarkerAlt className="mr-2" /> All Trips
+              </Link>
+
+              <Link
+                to="/allUsers"
+                className="hover:text-blue-300 transition-colors flex items-center py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <FaUsers className="mr-2" /> All Users
+              </Link>
+
+              <Link
+                to="/"
+                className="hover:text-blue-300 transition-colors flex items-center py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <FaHome className="mr-2" /> LogOut
+              </Link>
+            </ul>
+          </div>
+        )}
       </header>
 
       {/* Users Section */}
